@@ -3287,7 +3287,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100% a;
   height: 100%;
   z-index: 1;
   display: -webkit-box;
