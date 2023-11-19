@@ -444,6 +444,7 @@ $maxWidth:1440;
 	&__image {
 		display: block;
 		padding: 300px 0px 0px 0px;
+		width: 285px;
 		@media (min-width: 700px){
 			padding: 300px 0px 0px 0px;
 		}
@@ -485,12 +486,16 @@ $maxWidth:1440;
 	}
 	&__actions {}
 }
-.info-product {
-	position: relative;
-	transition: all 0.3s ease 0s;
-	&:hover{
-		background-color: rgba(0, 0, 0, 0.5);
+.product-slider__wrapper{
+	min-height: 300px;
+}
+.slider-product {
+	display: none;
+	&.active {
+		display: block;
 	}
+}
+.info-product {
 	&__title {
 		font-weight: 600;
 		line-height: 120%;
@@ -502,7 +507,42 @@ $maxWidth:1440;
 		@include adaptiv-value("font-size", 16, 14, 1);
 		line-height: 150%;
 		color: #898989;
-		margin: 8px 0px 0px 0px;
+		margin: 0px 0px 0px 0px;
+	}
+	&__color {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		margin-top: 10px;
+		&_btn {
+			display: block;
+			width: 15px;
+			height: 15px;
+			border-radius: 5px;
+			border: 1px solid rgba(0, 0, 0, 0.3);
+			transition: all 0.3s ease 0s;
+			&_gray {
+				background-color: gray;
+			}
+			&_brown {
+				background-color: brown;
+			}
+			&_white {
+				background-color: white;
+			}
+			&_pink {
+				background-color: pink;
+			}
+			&_purple {
+				background-color: purple;
+			}
+			&_yellow {
+				background-color: yellow;
+			}
+			&.active {
+				box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.5);
+			}
+		}
 	}
 	&__prices {
 		@include flexbox();
@@ -523,35 +563,9 @@ $maxWidth:1440;
 		color: #B0B0B0;
 	}
 	&__action {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%a;
-		height: 100%;
-		z-index: 1;
 		display: flex;
-		&_btn {
-			display: inline-block;
-			font-weight: 600;
-			font-size: 16px;
-			line-height: 48px;
-			text-align: center;
-			color: #E89F71;
-			background-color: #fff;
-			height: 48px;
-			@include adaptiv-value("margin-bottom", 24, 10, 1);
-			transition: all 0.3s ease 0s;
-			@media (any-hover: hover) {
-				width: 200px;
-				&:hover{
-					color: #fff;
-					background-color: #E89F71;
-				}
-			}
-			@media (any-hover: none) {
-				width: 100%;
-			}
-		}
+		justify-content: center;
+		margin-top: 20px;
 	}
 }
 .actions-product {
@@ -587,7 +601,7 @@ $maxWidth:1440;
 		color: #E89F71;
 		background-color: #fff;
 		height: 48px;
-		@include adaptiv-value("margin-bottom", 24, 10, 1);
+		// @include adaptiv-value("margin-bottom", 24, 10, 1);
 		transition: all 0.3s ease 0s;
 		@media (any-hover: hover) {
 			width: 200px;
