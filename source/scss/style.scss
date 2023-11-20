@@ -568,6 +568,31 @@ $maxWidth:1440;
 		margin-top: 20px;
 	}
 }
+.order-form {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	align-items: center;
+	// background-color: #F4F5F7;
+
+	label {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+	input {
+		font-size: 20px;
+		padding: 8px 15px;
+	}
+	button {
+		margin-top: 10px;
+	}
+	&__hidden {
+		visibility: hidden;
+		opacity: 0;
+		height: 0;
+	}
+}
 .actions-product {
 	@media (any-hover: hover) {
 	background-color: rgba(0, 0, 0, 0.5);

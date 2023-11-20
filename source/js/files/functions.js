@@ -229,6 +229,8 @@ for (let index = 0; index < popup_link.length; index++) {
 	const el = popup_link[index];
 	el.addEventListener('click', function (e) {
 		if (unlock) {
+			let productTitle = el.parentElement.querySelector('.info-product__title').innerHTML;
+			console.log('productTitle ', productTitle);
 			let item = el.getAttribute('href').replace('#', '');
 			let video = el.getAttribute('data-video');
 			popup_open(item, video);

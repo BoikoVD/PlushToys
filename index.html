@@ -335,9 +335,9 @@
 									</div> -->
 								</div>
 								<div class="info-product__action">
-									<button class="actions-product__btn">
+									<a href="order" class="actions-product__btn _popup-link">
 										Замовити
-									</button>
+									</a>
 								</div>
 							</div>
 							<!-- <div class="product__actions actions-product">
@@ -432,9 +432,9 @@
 									</div> -->
 								</div>
 								<div class="info-product__action">
-									<button class="actions-product__btn">
+									<a href="order" class="actions-product__btn _popup-link">
 										Замовити
-									</button>
+									</a>
 								</div>
 							</div>
 							<!-- <div class="product__actions actions-product">
@@ -514,9 +514,9 @@
 									</div> -->
 								</div>
 								<div class="info-product__action">
-									<button class="actions-product__btn">
+									<a href="order" class="actions-product__btn _popup-link">
 										Замовити
-									</button>
+									</a>
 								</div>
 							</div>
 							<!-- <div class="product__actions actions-product">
@@ -603,9 +603,9 @@
 									</div> -->
 								</div>
 								<div class="info-product__action">
-									<button class="actions-product__btn">
+									<a href="order" class="actions-product__btn _popup-link">
 										Замовити
-									</button>
+									</a>
 								</div>
 							</div>
 							<!-- <div class="product__actions actions-product">
@@ -977,10 +977,34 @@
 			</div>
 		</footer>
 	</div>
-	<div class="popup popup_popup">
+	<div class="popup popup_order">
 		<div class="popup__content">
 			<div class="popup__body">
 				<div class="popup__close"></div>
+				<form
+					action="https://formspree.io/f/xyyqalop"
+					method="POST"
+					class="order-form"
+					>
+					<div class="info-product__title popup-body-title"></div>
+					
+					<label class="order-form__hidden">
+						<div class="info-product__text">Іграшка-плед:</div>
+						<input type="text" name="toy_name" class="toy_name_field">
+					</label>
+
+					<label>
+						<div class="info-product__text">Введіть телефон:</div>
+						<input type="tel" name="phone">
+					</label>
+
+					<label class="order-form__hidden">
+						<div class="info-product__text">Колір:</div>
+						<input type="text" name="toy_color" class="toy_color_field">
+					</label>
+					<!-- your other form fields go here -->
+					<button type="submit" class="actions-product__btn">Замовити</button>
+				</form>
 			</div>
 		</div>
 	</div>

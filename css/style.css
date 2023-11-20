@@ -1446,10 +1446,10 @@ body.ie ._ibg img {
           transform: scale(0);
   -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
-  background-color: #fff;
+  background-color: #F4F5F7;
   padding: 50px;
   width: 100%;
-  max-width: 800px;
+  max-width: 400px;
   text-align: center;
   font-size: 24px;
   display: -webkit-box;
@@ -1465,6 +1465,11 @@ body.ie ._ibg img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+@media (max-width: 768px) {
+  .popup__body {
+    max-width: 300px;
+  }
 }
 .popup__close {
   width: 15px;
@@ -3336,6 +3341,42 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
       -ms-flex-pack: center;
           justify-content: center;
   margin-top: 20px;
+}
+
+.order-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 15px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.order-form label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+}
+.order-form input {
+  font-size: 20px;
+  padding: 8px 15px;
+}
+.order-form button {
+  margin-top: 10px;
+}
+.order-form__hidden {
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
 }
 
 .actions-product {
