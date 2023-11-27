@@ -53,6 +53,7 @@ header{}
 		min-height: 125px;
 		@include flexbox();
 		align-items: center;
+		justify-content: space-between;
 		padding: 5px 0px;
 		position: relative;
 		@media (max-width: $md2+px){
@@ -89,6 +90,37 @@ header{}
 		}
 	}
 	&__actions {}
+	&__contacts {
+		display: flex;
+		position: relative;
+		justify-content: flex-end;
+		align-items: center;
+		z-index: 99;
+		flex: 1 1 auto;
+		min-height: 40px;
+		
+		div {
+			font-size: 18px;
+			display: flex;
+			justify-content: flex-end;
+			color: #000;
+			position: relative;
+			z-index: 99;
+			width: 100%;
+			
+			@media (max-width: 400px){
+				font-size: 14px;
+			}
+			span {
+				padding: 0px 0px 0px 8px;
+			}
+		}
+		button {
+			margin: 0;
+			max-height: 45px;
+			max-width: 140px;
+		}
+	}
 }
 .menu {
 	flex: 0 1 420px;

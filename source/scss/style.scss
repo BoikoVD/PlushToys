@@ -148,6 +148,10 @@ $maxWidth:1440;
 	z-index: 10;
 	@include flexbox();
 	flex-direction: column;
+	&-2 {
+		padding-top: 50px;
+	}
+
 	&__wrapper {
 		@media (min-width: 1300px){
 			padding: 60px;
@@ -164,7 +168,7 @@ $maxWidth:1440;
 	}
 	&__title {
 		font-weight: 700;
-		@include adaptiv-value("font-size", 56, 32, 1);
+		@include adaptiv-value("font-size", 52, 32, 1);
 		line-height: 120%;
 		color: #3A3A3A;
 	}
@@ -241,11 +245,12 @@ $maxWidth:1440;
 		@include flexbox();
 		flex-direction: column;
 		position: absolute;
+		cursor: default;
 		@include adaptiv-value("bottom", 40, 0, 1);
 		@include adaptiv-value("right", 40, 0, 1);
 		@include adaptiv-value("width", 300, 150, 1);
 		max-height: 150px;
-		overflow: auto;
+		overflow: hidden;
 		@include adaptiv-value("padding", 24, 10, 1);
 		background: rgba(255, 255, 255, 0.72);
 		backdrop-filter: blur(31px);
@@ -258,13 +263,13 @@ $maxWidth:1440;
 	}
 	&__title {
 		font-weight: 600;
-		@include adaptiv-value("font-size", 28, 20, 1);
+		@include adaptiv-value("font-size", 22, 18, 1);
 		line-height: 120%;
 		color: #3A3A3A;
 	}
 	&__text {
 		font-weight: 500;
-		@include adaptiv-value("font-size", 16, 12, 1);
+		@include adaptiv-value("font-size", 14, 12, 1);
 		line-height: 150%;
 		color: #616161;
 		margin: 4px 0px;
@@ -303,6 +308,38 @@ $maxWidth:1440;
 		}
 	}
 }
+.bottom-form {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	align-items: center;
+	// background-color: #F4F5F7;
+
+	label {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+	input {
+		margin-top: 20px;
+		font-size: 20px;
+		padding: 8px 15px;
+		width: 100%;
+		max-width: 374px;
+		@media (max-width: 992px){
+			border: 1px solid #bdbdbd;
+		}
+	}
+	button {
+		margin-top: 0px;
+		height: 50px;
+	}
+	&__hidden {
+		visibility: hidden;
+		opacity: 0;
+		height: 0;
+	}
+}
 //========================================================================================================
 .benefits {
 	&__container {
@@ -312,16 +349,57 @@ $maxWidth:1440;
 		}
 	}
 	&__body {
-		padding: 88px 0px;
-		@include adaptiv-value("padding-top", 88, 20, 1);
-		@include adaptiv-value("padding-bottom", 88, 20, 1);
+		padding: 80px 0px;
+		@include adaptiv-value("padding-top", 80, 10, 1);
+		@include adaptiv-value("padding-bottom", 80, 10, 1);
 		@include flexbox();
-		flex-wrap: wrap;
+		//flex-wrap: wrap;
 		justify-content: space-between;
 		align-items: center;
+		position: relative;
 		@media (max-width: 600px){
 			@include adaptiv-value("padding-left", 480, 10, 1);
 			@include adaptiv-value("padding-right", 480, 10, 1);
+		}
+		@media (max-width: 992px){
+			flex-direction: column;
+		}
+		&__text {
+			font-size: 18px;
+			flex: 1 1 50%;
+			padding-right: 50px;
+			@media (max-width: 992px){
+				padding-right: 0px;
+				text-align: center;
+				margin-bottom: 35px;
+			}
+		}
+	}
+	&__body2 {
+		padding: 40px 0px;
+		@include adaptiv-value("padding-top", 20, 10, 1);
+		@include adaptiv-value("padding-bottom", 20, 10, 1);
+		@include flexbox();
+		//flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+		position: relative;
+		@media (max-width: 600px){
+			@include adaptiv-value("padding-left", 480, 10, 1);
+			@include adaptiv-value("padding-right", 480, 10, 1);
+		}
+		@media (max-width: 992px){
+			flex-direction: column;
+		}
+		&__text {
+			font-size: 18px;
+			flex: 1 1 50%;
+			padding-right: 50px;
+			@media (max-width: 992px){
+				padding-right: 0px;
+				text-align: center;
+				margin-bottom: 35px;
+			}
 		}
 	}
 	&__item {
@@ -336,9 +414,13 @@ $maxWidth:1440;
 			flex: 1 1 100%;
 		}
 	}
+	&__frame {
+		width: 100%;
+	}
 }
 .item-benefits {
 	@include flexbox();
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	padding: 16px 16px 16px 16px;
@@ -349,13 +431,15 @@ $maxWidth:1440;
 		//justify-content: center;
 	}
 	&__icon {
+		margin-bottom: 10px;
 		img {
 			width: 40px;
 			height: 40px;
 		}
 	}
 	&__content {
-		margin: 0px 0px 0px 24px;
+		margin: 0px 0px 0px 0px;
+		text-align: center;
 	}
 	&__title {
 		font-weight: 600;
@@ -371,11 +455,137 @@ $maxWidth:1440;
 		margin: 2px 0px 0px 0px;
 	}
 }
+
+.shop {
+	padding: 135px 0px;
+	position: relative;
+	//border-bottom: 4px solid #ededed;
+	&__container {}
+	&__items {}
+	&__item {}
+}
+.item-shop {
+	display: flex;
+	align-items: center;
+	margin: 0px -25px 100px -25px;
+	@media (max-width: $md2+px){
+		flex-direction: column;
+		text-align: center;
+		margin: 0px 0px 100px 0px;
+	}
+	&:last-child{
+		margin: 0px -25px 0px -25px;
+		@media (max-width: $md2+px){
+			margin: 0;
+		}
+	}
+	&:nth-child(even){
+		.item-shop__body {
+			order: 1;
+			@media (max-width: $md2+px){
+				order: 2;
+			}
+		}
+		.item-shop__image {
+			order: 2;
+			@media (max-width: $md2+px){
+				order: 1;
+			}
+		}
+	}
+	&__body {
+		flex: 1 1 55%;
+		order: 2;
+		padding: 0px 25px;
+		@media (max-width: $md2+px){
+			padding: 0px 0px;
+			flex: 1 1 100%;
+		}
+	}
+	&__title {
+		@include adaptiv-value("font-size", 30, 20, 1);
+		line-height: 1.2;
+		font-weight: 700;
+		color: #000000;
+		@media (max-width: $md2+px){
+			margin: 20px 0px 0px 0px;
+		}
+	}
+	&__text {
+		margin: 35px 0px 0px 0px;
+		@include adaptiv-value("font-size", 16, 14, 1);
+		font-weight: 700;
+		line-height: 22px;
+		color: #000000;
+	}
+	&__stats {}
+	&__btn {
+		margin: 35px 0px 0px 0px;
+	}
+	&__image {
+		flex: 1 1 45%;
+		order: 1;
+		padding: 0px 25px;
+		@media (max-width: $md1+px){
+			img {
+				width: 100%;
+			}
+		}
+		@media (max-width: $md2+px){
+			padding: 0px 0px;
+			flex: 1 1 100%;
+		}
+	}
+}
+.item-shop-stats {
+	margin: 60px 0px 0px 0px;
+	display: flex;
+	align-items: center;
+	@media (max-width: $md2+px){
+		justify-content: center;
+		margin: 30px 0px 0px 0px;
+	}
+	&__item {
+		display: flex;
+		align-items: center;
+		position: relative;
+		@media (max-width: $md2+px){
+			flex-direction: column;
+		}
+	}
+	&__text {
+		@include adaptiv-value("font-size", 14, 12, 1);
+		line-height: 1.2;
+		font-weight: 700;
+		color: #000000;
+		margin: 0px 5px;
+	}
+	&__value {
+		font-size: 35px;
+		@include adaptiv-value("font-size", 35, 30, 1);
+		line-height: 1.2;
+		font-weight: 400;
+		color: #000000;
+		margin: 0px 5px;
+		@media (max-width: $md2+px){
+			margin: 10px 5px 0px 5px;
+		}
+	}
+	&__slash {
+		font-size: 53px;
+		color: #e5e5e5;
+		margin: 0px 20px;
+		@media (max-width: $md2+px){
+			margin: 0px 15px;
+			font-size: 70px;
+		}
+	}
+}
 //========================================================================================================
 .products {
-	padding: 0px 0px 44px 0px;
+	padding: 20px 0px 44px 0px;
 	@media (max-width: $md4+px){
-		padding: 0px 0px 25px 0px;
+		padding: 50px 0px 25px 0px;
 	}
 	&__container {}
 	&__title {
@@ -449,7 +659,7 @@ $maxWidth:1440;
 			padding: 300px 0px 0px 0px;
 		}
 		@media (max-width: 700px){
-			@include adaptiv-value("padding-top", 300, 270, 1);
+			//@include adaptiv-value("padding-top", 300, 270, 1);
 		}
 	}
 	&__labels {
@@ -525,7 +735,7 @@ $maxWidth:1440;
 				background-color: gray;
 			}
 			&_brown {
-				background-color: brown;
+				background-color: #CB6600;
 			}
 			&_white {
 				background-color: white;
@@ -538,6 +748,12 @@ $maxWidth:1440;
 			}
 			&_yellow {
 				background-color: yellow;
+			}
+			&_blue {
+				background-color: rgb(118, 118, 247);
+			}
+			&_green {
+				background-color: rgb(75, 218, 75);
 			}
 			&.active {
 				box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.5);
@@ -678,7 +894,11 @@ $maxWidth:1440;
 	background-color: #FCF8F3;
 	@include adaptiv-value("padding-top", 44, 20, 1);
 	@include adaptiv-value("padding-bottom", 44, 20, 1);
-	&__container {}
+	&__container {
+		display: flex;
+		flex-direction: column;
+		align-items: center
+	}
 	&__body {
 		@include flexbox();
 		align-items: center;
@@ -885,8 +1105,8 @@ $maxWidth:1440;
 }
 //========================================================================================================
 .tips {
-	@include adaptiv-value("padding-top", 44, 20, 1);
-	@include adaptiv-value("padding-bottom", 44, 20, 1);
+	@include adaptiv-value("padding-top", 74, 20, 1);
+	@include adaptiv-value("padding-bottom", 74, 20, 1);
 	&__container {}
 	&__title {
 		text-align: center;
@@ -896,19 +1116,34 @@ $maxWidth:1440;
 .slider-tips {
 	position: relative;
 	&__body {
+		position: relative;
 		@include adaptiv-value("margin-left", -32, -15, 1);
 		@include adaptiv-value("margin-right", -32, -15, 1);
 		@include adaptiv-value("padding", 32, 15, 1);
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 1;
+			background: linear-gradient(90deg, white, rgba(0,0,0,0), white);
+			@media (max-width: $md3+px){
+				display: none;
+			}
+		}
 	}
 	&__slide {
 		@include flexbox();
 		flex-direction: column;
 		transition: all 0.3s ease 0s;
-		@media (any-hover: hover) {
-			&:hover{
-				box-shadow: 0 0 32px rgba(97, 97, 97, 0.2);
-			}
-		}
+		box-shadow: 0 0 32px rgba(97, 97, 97, 0.2);
+		// @media (any-hover: hover) {
+		// 	&:hover{
+		// 		box-shadow: 0 0 32px rgba(97, 97, 97, 0.2);
+		// 	}
+		// }
 	}
 	&__image {
 		display: block;
@@ -920,6 +1155,7 @@ $maxWidth:1440;
 		@include adaptiv-value("padding", 16, 10, 1);
 		@include flexbox();
 		flex-direction: column;
+		justify-content: space-between;
 	}
 	&__title {
 		flex: 1 1 auto;
@@ -934,6 +1170,13 @@ $maxWidth:1440;
 			}
 		}
 	}
+	&__text {
+		font-size: 20px;
+		font-weight: 600;
+		@media (max-width: $md3+px){
+			font-size: 16px;
+		}
+	}
 	&__date-text {
 		font-size: 14px;
 		line-height: 150%;
@@ -942,6 +1185,7 @@ $maxWidth:1440;
 	}
 	&__arrows {
 		position: absolute;
+		z-index: 2;
 		top: 50%;
 		transform: translate(0px, -130%);
 		left: -24px;

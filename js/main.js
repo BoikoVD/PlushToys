@@ -3,6 +3,42 @@
 window.onload = function () {
 	document.addEventListener("click", documentActions);
 
+	const debounce = (func, wait, immediate) => {
+		var timeout;
+		return () => {
+			const context = this, args = arguments;
+			const later = function() {
+				timeout = null;
+				if (!immediate) func.apply(context, args);
+			};
+			const callNow = immediate && !timeout;
+			clearTimeout(timeout);
+			timeout = setTimeout(later, wait);
+			if (callNow) func.apply(context, args);
+		};
+	};
+
+	const changeVideoSize = () => {
+		let video = document.querySelector('#youtubevideo');
+		console.log(video.width)
+		if (window.innerWidth > 600) {
+			video.width = 560;
+			video.height = 315;
+		};
+		if (window.innerWidth <= 600 && window.innerWidth > 400) {
+			video.width = 360;
+			video.height = 300;
+		};
+		if (window.innerWidth <= 400) {
+			video.width = 300;
+			video.height = 300;
+		};
+	};
+
+	changeVideoSize();
+
+	addEventListener('resize', debounce(changeVideoSize, 200, false), false);
+
 	// Actions (делегирование события click)
 	function documentActions(e) {
 		const targetElement = e.target;
@@ -14,29 +50,37 @@ window.onload = function () {
 				_removeClasses(document.querySelectorAll('.menu__item._hover'), "_hover");
 			}
 		}
-		if (targetElement.classList.contains('search-form__icon')) {
-			document.querySelector('.search-form').classList.toggle('_active');
-		} else if (!targetElement.closest('.search-form') && document.querySelector('.search-form._active')) {
-			document.querySelector('.search-form').classList.remove('_active');
-		}
+		// if (targetElement.classList.contains('search-form__icon')) {
+		// 	document.querySelector('.search-form').classList.toggle('_active');
+		// } else if (!targetElement.closest('.search-form') && document.querySelector('.search-form._active')) {
+		// 	document.querySelector('.search-form').classList.remove('_active');
+		// }
 		if (targetElement.classList.contains('products__btn')) {
 			getProducts(targetElement);
 			e.preventDefault();
 		} 
+
+		if (targetElement.classList.contains('main-catalog-btn')) {
+			let catalog = document.querySelector('#catalog');
+			catalog.scrollIntoView({
+				behavior: "smooth",
+				block: "start",
+			})
+		}
 		// if (targetElement.classList.contains('actions-product__btn')) {
 		// 	const productId = targetElement.closest('.product').dataset.pid;
 		// 	addToCart(targetElement, productId);
 		// 	e.preventDefault();
 		// } 
 
-		if (targetElement.classList.contains('cart-header__icon') || targetElement.closest('.cart-header__icon')) {
-			if (document.querySelector('.cart-list').children.length > 0) {
-				document.querySelector('.cart-header').classList.toggle('_active');
-			}
-			e.preventDefault();
-		} else if (!targetElement.closest('.cart-header') && !targetElement.classList.contains('actions-product__btn')) {
-			document.querySelector('.cart-header').classList.remove('_active');
-		} 
+		// if (targetElement.classList.contains('cart-header__icon') || targetElement.closest('.cart-header__icon')) {
+		// 	if (document.querySelector('.cart-list').children.length > 0) {
+		// 		document.querySelector('.cart-header').classList.toggle('_active');
+		// 	}
+		// 	e.preventDefault();
+		// } else if (!targetElement.closest('.cart-header') && !targetElement.classList.contains('actions-product__btn')) {
+		// 	document.querySelector('.cart-header').classList.remove('_active');
+		// } 
 
 		// if (targetElement.classList.contains('cart-list__delete')) {
 		// 	const productId = targetElement.closest('.cart-list__item').dataset.cartPid;
@@ -132,6 +176,172 @@ window.onload = function () {
 			document.querySelector('.slider-product__4-2.prod_4').classList.add('active');
 		}
 
+		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_blue') && targetElement.classList.contains('prod_5')) {
+			document.querySelector('.info-product__color_btn_blue.prod_5').classList.add('active');
+			document.querySelector('.info-product__color_btn_yellow.prod_5').classList.remove('active');
+			document.querySelector('.slider-product__5-1.prod_5').classList.add('active');
+			document.querySelector('.slider-product__5-2.prod_5').classList.remove('active');
+		}
+		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_yellow') && targetElement.classList.contains('prod_5')) {
+			document.querySelector('.info-product__color_btn_blue.prod_5').classList.remove('active');
+			document.querySelector('.info-product__color_btn_yellow.prod_5').classList.add('active');
+			document.querySelector('.slider-product__5-1.prod_5').classList.remove('active');
+			document.querySelector('.slider-product__5-2.prod_5').classList.add('active');
+		}
+
+		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_gray') && targetElement.classList.contains('prod_6')) {
+			document.querySelector('.info-product__color_btn_gray.prod_6').classList.add('active');
+			document.querySelector('.info-product__color_btn_pink.prod_6').classList.remove('active');
+			document.querySelector('.slider-product__6-1.prod_6').classList.add('active');
+			document.querySelector('.slider-product__6-2.prod_6').classList.remove('active');
+		}
+		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_pink') && targetElement.classList.contains('prod_6')) {
+			document.querySelector('.info-product__color_btn_gray.prod_6').classList.remove('active');
+			document.querySelector('.info-product__color_btn_pink.prod_6').classList.add('active');
+			document.querySelector('.slider-product__6-1.prod_6').classList.remove('active');
+			document.querySelector('.slider-product__6-2.prod_6').classList.add('active');
+		}
+
+		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_gray') && targetElement.classList.contains('prod_7')) {
+			document.querySelector('.info-product__color_btn_gray.prod_7').classList.add('active');
+			document.querySelector('.info-product__color_btn_brown.prod_7').classList.remove('active');
+			document.querySelector('.info-product__color_btn_pink.prod_7').classList.remove('active');
+			document.querySelector('.info-product__color_btn_blue.prod_7').classList.remove('active');
+			document.querySelector('.slider-product__7-1.prod_7').classList.add('active');
+			document.querySelector('.slider-product__7-2.prod_7').classList.remove('active');
+			document.querySelector('.slider-product__7-3.prod_7').classList.remove('active');
+			document.querySelector('.slider-product__7-4.prod_7').classList.remove('active');
+		}
+		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_brown') && targetElement.classList.contains('prod_7')) {
+			document.querySelector('.info-product__color_btn_gray.prod_7').classList.remove('active');
+			document.querySelector('.info-product__color_btn_brown.prod_7').classList.add('active');
+			document.querySelector('.info-product__color_btn_pink.prod_7').classList.remove('active');
+			document.querySelector('.info-product__color_btn_blue.prod_7').classList.remove('active');
+			document.querySelector('.slider-product__7-1.prod_7').classList.remove('active');
+			document.querySelector('.slider-product__7-2.prod_7').classList.add('active');
+			document.querySelector('.slider-product__7-3.prod_7').classList.remove('active');
+			document.querySelector('.slider-product__7-4.prod_7').classList.remove('active');
+		}
+		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_pink') && targetElement.classList.contains('prod_7')) {
+			document.querySelector('.info-product__color_btn_gray.prod_7').classList.remove('active');
+			document.querySelector('.info-product__color_btn_brown.prod_7').classList.remove('active');
+			document.querySelector('.info-product__color_btn_pink.prod_7').classList.add('active');
+			document.querySelector('.info-product__color_btn_blue.prod_7').classList.remove('active');
+			document.querySelector('.slider-product__7-1.prod_7').classList.remove('active');
+			document.querySelector('.slider-product__7-2.prod_7').classList.remove('active');
+			document.querySelector('.slider-product__7-3.prod_7').classList.add('active');
+			document.querySelector('.slider-product__7-4.prod_7').classList.remove('active');
+		}
+		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_blue') && targetElement.classList.contains('prod_7')) {
+			document.querySelector('.info-product__color_btn_gray.prod_7').classList.remove('active');
+			document.querySelector('.info-product__color_btn_brown.prod_7').classList.remove('active');
+			document.querySelector('.info-product__color_btn_pink.prod_7').classList.remove('active');
+			document.querySelector('.info-product__color_btn_blue.prod_7').classList.add('active');
+			document.querySelector('.slider-product__7-1.prod_7').classList.remove('active');
+			document.querySelector('.slider-product__7-2.prod_7').classList.remove('active');
+			document.querySelector('.slider-product__7-3.prod_7').classList.remove('active');
+			document.querySelector('.slider-product__7-4.prod_7').classList.add('active');
+		}
+
+		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_gray') && targetElement.classList.contains('prod_8')) {
+			document.querySelector('.info-product__color_btn_gray.prod_8').classList.add('active');
+			document.querySelector('.info-product__color_btn_brown.prod_8').classList.remove('active');
+			document.querySelector('.slider-product__8-1.prod_8').classList.add('active');
+			document.querySelector('.slider-product__8-2.prod_8').classList.remove('active');
+		}
+		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_brown') && targetElement.classList.contains('prod_8')) {
+			document.querySelector('.info-product__color_btn_gray.prod_8').classList.remove('active');
+			document.querySelector('.info-product__color_btn_brown.prod_8').classList.add('active');
+			document.querySelector('.slider-product__8-1.prod_8').classList.remove('active');
+			document.querySelector('.slider-product__8-2.prod_8').classList.add('active');
+		}
+
+		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_pink') && targetElement.classList.contains('prod_9')) {
+			document.querySelector('.info-product__color_btn_pink.prod_9').classList.add('active');
+			document.querySelector('.info-product__color_btn_green.prod_9').classList.remove('active');
+			document.querySelector('.info-product__color_btn_blue.prod_9').classList.remove('active');
+			document.querySelector('.slider-product__9-1.prod_9').classList.add('active');
+			document.querySelector('.slider-product__9-2.prod_9').classList.remove('active');
+			document.querySelector('.slider-product__9-3.prod_9').classList.remove('active');
+		}
+		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_green') && targetElement.classList.contains('prod_9')) {
+			document.querySelector('.info-product__color_btn_pink.prod_9').classList.remove('active');
+			document.querySelector('.info-product__color_btn_green.prod_9').classList.add('active');
+			document.querySelector('.info-product__color_btn_blue.prod_9').classList.remove('active');
+			document.querySelector('.slider-product__9-1.prod_9').classList.remove('active');
+			document.querySelector('.slider-product__9-2.prod_9').classList.add('active');
+			document.querySelector('.slider-product__9-3.prod_9').classList.remove('active');
+		}
+		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_blue') && targetElement.classList.contains('prod_9')) {
+			document.querySelector('.info-product__color_btn_pink.prod_9').classList.remove('active');
+			document.querySelector('.info-product__color_btn_green.prod_9').classList.remove('active');
+			document.querySelector('.info-product__color_btn_blue.prod_9').classList.add('active');
+			document.querySelector('.slider-product__9-1.prod_9').classList.remove('active');
+			document.querySelector('.slider-product__9-2.prod_9').classList.remove('active');
+			document.querySelector('.slider-product__9-3.prod_9').classList.add('active');
+		}
+
+		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_yellow') && targetElement.classList.contains('prod_10')) {
+			document.querySelector('.info-product__color_btn_yellow.prod_10').classList.add('active');
+			document.querySelector('.info-product__color_btn_pink.prod_10').classList.remove('active');
+			document.querySelector('.info-product__color_btn_blue.prod_10').classList.remove('active');
+			document.querySelector('.slider-product__10-1.prod_10').classList.add('active');
+			document.querySelector('.slider-product__10-2.prod_10').classList.remove('active');
+			document.querySelector('.slider-product__10-3.prod_10').classList.remove('active');
+		}
+		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_pink') && targetElement.classList.contains('prod_10')) {
+			document.querySelector('.info-product__color_btn_yellow.prod_10').classList.remove('active');
+			document.querySelector('.info-product__color_btn_pink.prod_10').classList.add('active');
+			document.querySelector('.info-product__color_btn_blue.prod_10').classList.remove('active');
+			document.querySelector('.slider-product__10-1.prod_10').classList.remove('active');
+			document.querySelector('.slider-product__10-2.prod_10').classList.add('active');
+			document.querySelector('.slider-product__10-3.prod_10').classList.remove('active');
+		}
+		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_blue') && targetElement.classList.contains('prod_10')) {
+			document.querySelector('.info-product__color_btn_yellow.prod_10').classList.remove('active');
+			document.querySelector('.info-product__color_btn_pink.prod_10').classList.remove('active');
+			document.querySelector('.info-product__color_btn_blue.prod_10').classList.add('active');
+			document.querySelector('.slider-product__10-1.prod_10').classList.remove('active');
+			document.querySelector('.slider-product__10-2.prod_10').classList.remove('active');
+			document.querySelector('.slider-product__10-3.prod_10').classList.add('active');
+		}
+		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_blue') && targetElement.classList.contains('prod_11')) {
+			document.querySelector('.info-product__color_btn_blue.prod_11').classList.add('active');
+			document.querySelector('.info-product__color_btn_green.prod_11').classList.remove('active');
+			document.querySelector('.info-product__color_btn_pink.prod_11').classList.remove('active');
+			document.querySelector('.slider-product__11-1.prod_11').classList.add('active');
+			document.querySelector('.slider-product__11-2.prod_11').classList.remove('active');
+			document.querySelector('.slider-product__11-3.prod_11').classList.remove('active');
+		}
+		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_green') && targetElement.classList.contains('prod_11')) {
+			document.querySelector('.info-product__color_btn_blue.prod_11').classList.remove('active');
+			document.querySelector('.info-product__color_btn_green.prod_11').classList.add('active');
+			document.querySelector('.info-product__color_btn_pink.prod_11').classList.remove('active');
+			document.querySelector('.slider-product__11-1.prod_11').classList.remove('active');
+			document.querySelector('.slider-product__11-2.prod_11').classList.add('active');
+			document.querySelector('.slider-product__11-3.prod_11').classList.remove('active');
+		}
+		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_pink') && targetElement.classList.contains('prod_11')) {
+			document.querySelector('.info-product__color_btn_blue.prod_11').classList.remove('active');
+			document.querySelector('.info-product__color_btn_green.prod_11').classList.remove('active');
+			document.querySelector('.info-product__color_btn_pink.prod_11').classList.add('active');
+			document.querySelector('.slider-product__11-1.prod_11').classList.remove('active');
+			document.querySelector('.slider-product__11-2.prod_11').classList.remove('active');
+			document.querySelector('.slider-product__11-3.prod_11').classList.add('active');
+		}
+
+		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_gray') && targetElement.classList.contains('prod_12')) {
+			document.querySelector('.info-product__color_btn_gray.prod_12').classList.add('active');
+			document.querySelector('.info-product__color_btn_brown.prod_12').classList.remove('active');
+			document.querySelector('.slider-product__12-1.prod_12').classList.add('active');
+			document.querySelector('.slider-product__12-2.prod_12').classList.remove('active');
+		}
+		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_brown') && targetElement.classList.contains('prod_12')) {
+			document.querySelector('.info-product__color_btn_gray.prod_12').classList.remove('active');
+			document.querySelector('.info-product__color_btn_brown.prod_12').classList.add('active');
+			document.querySelector('.slider-product__12-1.prod_12').classList.remove('active');
+			document.querySelector('.slider-product__12-2.prod_12').classList.add('active');
+		}
 	}
 	
 	// Header
@@ -169,94 +379,94 @@ window.onload = function () {
 		}
 	}
 
-	function loadProducts(data) {
-		const productsItems = document.querySelector('.products__body');
+	// function loadProducts(data) {
+	// 	const productsItems = document.querySelector('.products__body');
 
-		data.products.forEach(item => {
-			const productId = item.id;
-			const productUrl = item.url;
-			const productImage = item.image;
-			const productTitle = item.title;
-			const productText = item.text;
-			const productPrice = item.price;
-			const productOldPrice = item.priceOld;
-			const productShareUrl = item.shareUrl;
-			const productLikeUrl = item.likeUrl;
-			const productLabels = item.labels;
+	// 	data.products.forEach(item => {
+	// 		const productId = item.id;
+	// 		const productUrl = item.url;
+	// 		const productImage = item.image;
+	// 		const productTitle = item.title;
+	// 		const productText = item.text;
+	// 		const productPrice = item.price;
+	// 		const productOldPrice = item.priceOld;
+	// 		const productShareUrl = item.shareUrl;
+	// 		const productLikeUrl = item.likeUrl;
+	// 		const productLabels = item.labels;
 
-			let productTemplateStart = `<article data-pid="${productId}" class="product">`;
-			let productTemplateEnd = `</article>`;
+	// 		let productTemplateStart = `<article data-pid="${productId}" class="product">`;
+	// 		let productTemplateEnd = `</article>`;
 
-			let productTemplateContentStart = `<div class="product__content">`;
-			let productTemplateContentEnd = `</div>`;
+	// 		let productTemplateContentStart = `<div class="product__content">`;
+	// 		let productTemplateContentEnd = `</div>`;
 
-			let productTemplateImage = `
-				<a href="${productUrl}" class="product__image _ibg">
-					<img src="img/products/${productImage}" alt="${productTitle}">
-				</a>
-			`;
+	// 		let productTemplateImage = `
+	// 			<a href="${productUrl}" class="product__image _ibg">
+	// 				<img src="img/products/${productImage}" alt="${productTitle}">
+	// 			</a>
+	// 		`;
 
-			let productTemplateLabels = '';
-			if (productLabels) {
-				let productTemplateLabelsStart = `<div class="product__labels">`;
-				let productTemplateLabelsEnd = `</div>`;
-				let productTemplateLabelsContent = '';
+	// 		let productTemplateLabels = '';
+	// 		if (productLabels) {
+	// 			let productTemplateLabelsStart = `<div class="product__labels">`;
+	// 			let productTemplateLabelsEnd = `</div>`;
+	// 			let productTemplateLabelsContent = '';
 
-				productLabels.forEach(labelItem => {
-					productTemplateLabelsContent += `<div class="product__label product__label_${labelItem.type}">${labelItem.value}</div>`;
-				});
+	// 			productLabels.forEach(labelItem => {
+	// 				productTemplateLabelsContent += `<div class="product__label product__label_${labelItem.type}">${labelItem.value}</div>`;
+	// 			});
 
-				productTemplateLabels += productTemplateLabelsStart;
-				productTemplateLabels += productTemplateLabelsContent;
-				productTemplateLabels += productTemplateLabelsEnd;
-			}
+	// 			productTemplateLabels += productTemplateLabelsStart;
+	// 			productTemplateLabels += productTemplateLabelsContent;
+	// 			productTemplateLabels += productTemplateLabelsEnd;
+	// 		}
 
-			let productTemplateInfoStart = `
-				<div class="product__info info-product">
-					<h3 class="info-product__title">${productTitle}</h3>
-					<div class="info-product__text">${productText}</div>
-			`;
-			let productTemplateInfoEnd = `</div>`;
+	// 		let productTemplateInfoStart = `
+	// 			<div class="product__info info-product">
+	// 				<h3 class="info-product__title">${productTitle}</h3>
+	// 				<div class="info-product__text">${productText}</div>
+	// 		`;
+	// 		let productTemplateInfoEnd = `</div>`;
 
-			let productTemplatePrices = '';
-			let productTemplatePricesStart = `<div class="info-product__prices">`;
-			let productTemplatePricesCurrent = `<div class="info-product__current-price">Rp ${productPrice}</div>`;
-			let productTemplatePricesOld = `<div class="info-product__old-price">Rp ${productOldPrice}</div>`;
-			let productTemplatePricesEnd = `</div>`;
+	// 		let productTemplatePrices = '';
+	// 		let productTemplatePricesStart = `<div class="info-product__prices">`;
+	// 		let productTemplatePricesCurrent = `<div class="info-product__current-price">Rp ${productPrice}</div>`;
+	// 		let productTemplatePricesOld = `<div class="info-product__old-price">Rp ${productOldPrice}</div>`;
+	// 		let productTemplatePricesEnd = `</div>`;
 
-			productTemplatePrices = productTemplatePricesStart;
-			productTemplatePrices += productTemplatePricesCurrent;
-			if (productOldPrice) {
-				productTemplatePrices += productTemplatePricesOld;
-			}
-			productTemplatePrices += productTemplatePricesEnd;
+	// 		productTemplatePrices = productTemplatePricesStart;
+	// 		productTemplatePrices += productTemplatePricesCurrent;
+	// 		if (productOldPrice) {
+	// 			productTemplatePrices += productTemplatePricesOld;
+	// 		}
+	// 		productTemplatePrices += productTemplatePricesEnd;
 
-			let productTemplateActions = `
-				<div class="product__actions actions-product">
-					<a href="" class="actions-product__btn">Add to cart</a>
-					<div class="actions-product__items">
-						<a href="${productShareUrl}" class="actions-product__item _icon-share">Share</a>
-						<a href="${productLikeUrl}" class="actions-product__item _icon-favorite">Like</a>
-					</div>
-				</div>
-			`;
-			let productTemplate = '';
-			productTemplate += productTemplateStart;
-			productTemplate += productTemplateContentStart;
-			productTemplate += productTemplateImage;
-			productTemplate += productTemplateLabels;
-			productTemplate += productTemplateInfoStart;
-			productTemplate += productTemplatePrices;
-			productTemplate += productTemplateInfoEnd;
-			productTemplate += productTemplateActions;
-			productTemplate += productTemplateContentEnd;
-			productTemplate += productTemplateEnd;
+	// 		let productTemplateActions = `
+	// 			<div class="product__actions actions-product">
+	// 				<a href="" class="actions-product__btn">Add to cart</a>
+	// 				<div class="actions-product__items">
+	// 					<a href="${productShareUrl}" class="actions-product__item _icon-share">Share</a>
+	// 					<a href="${productLikeUrl}" class="actions-product__item _icon-favorite">Like</a>
+	// 				</div>
+	// 			</div>
+	// 		`;
+	// 		let productTemplate = '';
+	// 		productTemplate += productTemplateStart;
+	// 		productTemplate += productTemplateContentStart;
+	// 		productTemplate += productTemplateImage;
+	// 		productTemplate += productTemplateLabels;
+	// 		productTemplate += productTemplateInfoStart;
+	// 		productTemplate += productTemplatePrices;
+	// 		productTemplate += productTemplateInfoEnd;
+	// 		productTemplate += productTemplateActions;
+	// 		productTemplate += productTemplateContentEnd;
+	// 		productTemplate += productTemplateEnd;
 
-			productsItems.insertAdjacentHTML('beforeend', productTemplate);
+	// 		productsItems.insertAdjacentHTML('beforeend', productTemplate);
 
-		});
+	// 	});
 
-	}
+	// }
 
 	// AddToCart
 	
@@ -661,6 +871,8 @@ function getColorName(el) {
 	if (el.classList.contains('info-product__color_btn_pink')) return 'Розовий';
 	if (el.classList.contains('info-product__color_btn_purple')) return 'Фіолетовий';
 	if (el.classList.contains('info-product__color_btn_yellow')) return 'Жовтий';
+	if (el.classList.contains('info-product__color_btn_blue')) return 'Синій';
+	if (el.classList.contains('info-product__color_btn_green')) return 'Зелений';
 }
 function popup_open(item, productTitle, productColor, video = '') {
 	let activePopup = document.querySelectorAll('.popup._active');
@@ -1465,6 +1677,7 @@ if (document.querySelector('.slider-tips__body')) {
 		loopAdditionalSlides: 5,
 		preloadImages: false,
 		parallax: true,
+		centeredSlides: true,
 		// Dotts
 		pagination: {
 			el: '.slider-tips__dotts',
@@ -1637,6 +1850,300 @@ if (document.querySelector('.slider-product__4-1')) {
 }
 if (document.querySelector('.slider-product__4-2')) {
 	new Swiper('.slider-product__4-2', {
+		observer: true,
+		observeParents: true,
+		slidesPerView: 1,
+		spaceBetween: 5,
+		watchOverflow: true,
+		speed: 800,
+		loop: true,
+		loopAdditionalSlides: 5,
+		preloadImages: false,
+		parallax: true,
+	});
+}
+if (document.querySelector('.slider-product__5-1')) {
+	new Swiper('.slider-product__5-1', {
+		observer: true,
+		observeParents: true,
+		slidesPerView: 1,
+		spaceBetween: 5,
+		watchOverflow: true,
+		speed: 800,
+		loop: true,
+		loopAdditionalSlides: 5,
+		preloadImages: false,
+		parallax: true,
+	});
+}
+if (document.querySelector('.slider-product__5-2')) {
+	new Swiper('.slider-product__5-2', {
+		observer: true,
+		observeParents: true,
+		slidesPerView: 1,
+		spaceBetween: 5,
+		watchOverflow: true,
+		speed: 800,
+		loop: true,
+		loopAdditionalSlides: 5,
+		preloadImages: false,
+		parallax: true,
+	});
+}
+if (document.querySelector('.slider-product__6-1')) {
+	new Swiper('.slider-product__6-1', {
+		observer: true,
+		observeParents: true,
+		slidesPerView: 1,
+		spaceBetween: 5,
+		watchOverflow: true,
+		speed: 800,
+		loop: true,
+		loopAdditionalSlides: 5,
+		preloadImages: false,
+		parallax: true,
+	});
+}
+if (document.querySelector('.slider-product__6-2')) {
+	new Swiper('.slider-product__6-2', {
+		observer: true,
+		observeParents: true,
+		slidesPerView: 1,
+		spaceBetween: 5,
+		watchOverflow: true,
+		speed: 800,
+		loop: true,
+		loopAdditionalSlides: 5,
+		preloadImages: false,
+		parallax: true,
+	});
+}
+if (document.querySelector('.slider-product__7-1')) {
+	new Swiper('.slider-product__7-1', {
+		observer: true,
+		observeParents: true,
+		slidesPerView: 1,
+		spaceBetween: 5,
+		watchOverflow: true,
+		speed: 800,
+		loop: true,
+		loopAdditionalSlides: 5,
+		preloadImages: false,
+		parallax: true,
+	});
+}
+if (document.querySelector('.slider-product__7-2')) {
+	new Swiper('.slider-product__7-2', {
+		observer: true,
+		observeParents: true,
+		slidesPerView: 1,
+		spaceBetween: 5,
+		watchOverflow: true,
+		speed: 800,
+		loop: true,
+		loopAdditionalSlides: 5,
+		preloadImages: false,
+		parallax: true,
+	});
+}
+if (document.querySelector('.slider-product__7-3')) {
+	new Swiper('.slider-product__7-3', {
+		observer: true,
+		observeParents: true,
+		slidesPerView: 1,
+		spaceBetween: 5,
+		watchOverflow: true,
+		speed: 800,
+		loop: true,
+		loopAdditionalSlides: 5,
+		preloadImages: false,
+		parallax: true,
+	});
+}
+if (document.querySelector('.slider-product__7-4')) {
+	new Swiper('.slider-product__7-4', {
+		observer: true,
+		observeParents: true,
+		slidesPerView: 1,
+		spaceBetween: 5,
+		watchOverflow: true,
+		speed: 800,
+		loop: true,
+		loopAdditionalSlides: 5,
+		preloadImages: false,
+		parallax: true,
+	});
+}
+if (document.querySelector('.slider-product__8-1')) {
+	new Swiper('.slider-product__8-1', {
+		observer: true,
+		observeParents: true,
+		slidesPerView: 1,
+		spaceBetween: 5,
+		watchOverflow: true,
+		speed: 800,
+		loop: true,
+		loopAdditionalSlides: 5,
+		preloadImages: false,
+		parallax: true,
+	});
+}
+if (document.querySelector('.slider-product__8-2')) {
+	new Swiper('.slider-product__8-2', {
+		observer: true,
+		observeParents: true,
+		slidesPerView: 1,
+		spaceBetween: 5,
+		watchOverflow: true,
+		speed: 800,
+		loop: true,
+		loopAdditionalSlides: 5,
+		preloadImages: false,
+		parallax: true,
+	});
+}
+if (document.querySelector('.slider-product__9-1')) {
+	new Swiper('.slider-product__9-1', {
+		observer: true,
+		observeParents: true,
+		slidesPerView: 1,
+		spaceBetween: 5,
+		watchOverflow: true,
+		speed: 800,
+		loop: true,
+		loopAdditionalSlides: 5,
+		preloadImages: false,
+		parallax: true,
+	});
+}
+if (document.querySelector('.slider-product__9-2')) {
+	new Swiper('.slider-product__9-2', {
+		observer: true,
+		observeParents: true,
+		slidesPerView: 1,
+		spaceBetween: 5,
+		watchOverflow: true,
+		speed: 800,
+		loop: true,
+		loopAdditionalSlides: 5,
+		preloadImages: false,
+		parallax: true,
+	});
+}
+if (document.querySelector('.slider-product__9-3')) {
+	new Swiper('.slider-product__9-3', {
+		observer: true,
+		observeParents: true,
+		slidesPerView: 1,
+		spaceBetween: 5,
+		watchOverflow: true,
+		speed: 800,
+		loop: true,
+		loopAdditionalSlides: 5,
+		preloadImages: false,
+		parallax: true,
+	});
+}
+if (document.querySelector('.slider-product__10-1')) {
+	new Swiper('.slider-product__10-1', {
+		observer: true,
+		observeParents: true,
+		slidesPerView: 1,
+		spaceBetween: 5,
+		watchOverflow: true,
+		speed: 800,
+		loop: true,
+		loopAdditionalSlides: 5,
+		preloadImages: false,
+		parallax: true,
+	});
+}
+if (document.querySelector('.slider-product__10-2')) {
+	new Swiper('.slider-product__10-2', {
+		observer: true,
+		observeParents: true,
+		slidesPerView: 1,
+		spaceBetween: 5,
+		watchOverflow: true,
+		speed: 800,
+		loop: true,
+		loopAdditionalSlides: 5,
+		preloadImages: false,
+		parallax: true,
+	});
+}
+if (document.querySelector('.slider-product__10-3')) {
+	new Swiper('.slider-product__10-3', {
+		observer: true,
+		observeParents: true,
+		slidesPerView: 1,
+		spaceBetween: 5,
+		watchOverflow: true,
+		speed: 800,
+		loop: true,
+		loopAdditionalSlides: 5,
+		preloadImages: false,
+		parallax: true,
+	});
+}
+if (document.querySelector('.slider-product__11-1')) {
+	new Swiper('.slider-product__11-1', {
+		observer: true,
+		observeParents: true,
+		slidesPerView: 1,
+		spaceBetween: 5,
+		watchOverflow: true,
+		speed: 800,
+		loop: true,
+		loopAdditionalSlides: 5,
+		preloadImages: false,
+		parallax: true,
+	});
+}
+if (document.querySelector('.slider-product__11-2')) {
+	new Swiper('.slider-product__11-2', {
+		observer: true,
+		observeParents: true,
+		slidesPerView: 1,
+		spaceBetween: 5,
+		watchOverflow: true,
+		speed: 800,
+		loop: true,
+		loopAdditionalSlides: 5,
+		preloadImages: false,
+		parallax: true,
+	});
+}
+if (document.querySelector('.slider-product__11-3')) {
+	new Swiper('.slider-product__11-3', {
+		observer: true,
+		observeParents: true,
+		slidesPerView: 1,
+		spaceBetween: 5,
+		watchOverflow: true,
+		speed: 800,
+		loop: true,
+		loopAdditionalSlides: 5,
+		preloadImages: false,
+		parallax: true,
+	});
+}
+if (document.querySelector('.slider-product__12-1')) {
+	new Swiper('.slider-product__12-1', {
+		observer: true,
+		observeParents: true,
+		slidesPerView: 1,
+		spaceBetween: 5,
+		watchOverflow: true,
+		speed: 800,
+		loop: true,
+		loopAdditionalSlides: 5,
+		preloadImages: false,
+		parallax: true,
+	});
+}
+if (document.querySelector('.slider-product__12-2')) {
+	new Swiper('.slider-product__12-2', {
 		observer: true,
 		observeParents: true,
 		slidesPerView: 1,
