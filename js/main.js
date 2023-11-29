@@ -88,6 +88,13 @@ window.onload = function () {
 		// 	e.preventDefault();
 		// } 
 
+		if (targetElement.classList.contains('order-toy-btn')) {
+			fbq('track', 'Lead');
+		}
+		if (targetElement.classList.contains('order-call-btn')) {
+			fbq('track', 'Lead');
+		}
+
 		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_gray') && targetElement.classList.contains('prod_1')) {
 			document.querySelector('.info-product__color_btn_gray.prod_1').classList.add('active');
 			document.querySelector('.info-product__color_btn_brown.prod_1').classList.remove('active');
