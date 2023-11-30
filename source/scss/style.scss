@@ -665,8 +665,20 @@ $maxWidth:1440;
 	&__labels {
 		position: absolute;
 		cursor: default;
-		@include adaptiv-value("top", 24, 14, 1);
-		@include adaptiv-value("right", 24, 14, 1);
+		@include adaptiv-value("top", 14, 10, 1);
+		@include adaptiv-value("right", 14, 10, 1);
+	}
+	&__slider-btns {
+		display: none;
+		gap: 5px;
+		&.active {
+			display: flex;
+		}
+		& button {
+			width: 26px !important;
+			height: 26px !important;
+			//background-color: rgba(232, 159, 113, 0.5);
+		}
 	}
 	&__label {
 		width: 48px;

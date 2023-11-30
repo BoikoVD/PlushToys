@@ -3556,18 +3556,31 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 .product__labels {
   position: absolute;
   cursor: default;
-  top: 24px;
-  right: 24px;
+  top: 14px;
+  right: 14px;
 }
 @media (max-width: 1270px) {
   .product__labels {
-    top: calc(14px + 10 * ((100vw - 320px) / 950));
+    top: calc(10px + 4 * ((100vw - 320px) / 950));
   }
 }
 @media (max-width: 1270px) {
   .product__labels {
-    right: calc(14px + 10 * ((100vw - 320px) / 950));
+    right: calc(10px + 4 * ((100vw - 320px) / 950));
   }
+}
+.product__slider-btns {
+  display: none;
+  gap: 5px;
+}
+.product__slider-btns.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.product__slider-btns button {
+  width: 26px !important;
+  height: 26px !important;
 }
 .product__label {
   width: 48px;

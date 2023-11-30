@@ -1,5 +1,3 @@
-
-
 window.onload = function () {
 	document.addEventListener("click", documentActions);
 
@@ -50,11 +48,6 @@ window.onload = function () {
 				_removeClasses(document.querySelectorAll('.menu__item._hover'), "_hover");
 			}
 		}
-		// if (targetElement.classList.contains('search-form__icon')) {
-		// 	document.querySelector('.search-form').classList.toggle('_active');
-		// } else if (!targetElement.closest('.search-form') && document.querySelector('.search-form._active')) {
-		// 	document.querySelector('.search-form').classList.remove('_active');
-		// }
 		if (targetElement.classList.contains('products__btn')) {
 			getProducts(targetElement);
 			e.preventDefault();
@@ -67,26 +60,6 @@ window.onload = function () {
 				block: "start",
 			})
 		}
-		// if (targetElement.classList.contains('actions-product__btn')) {
-		// 	const productId = targetElement.closest('.product').dataset.pid;
-		// 	addToCart(targetElement, productId);
-		// 	e.preventDefault();
-		// } 
-
-		// if (targetElement.classList.contains('cart-header__icon') || targetElement.closest('.cart-header__icon')) {
-		// 	if (document.querySelector('.cart-list').children.length > 0) {
-		// 		document.querySelector('.cart-header').classList.toggle('_active');
-		// 	}
-		// 	e.preventDefault();
-		// } else if (!targetElement.closest('.cart-header') && !targetElement.classList.contains('actions-product__btn')) {
-		// 	document.querySelector('.cart-header').classList.remove('_active');
-		// } 
-
-		// if (targetElement.classList.contains('cart-list__delete')) {
-		// 	const productId = targetElement.closest('.cart-list__item').dataset.cartPid;
-		// 	updateCart(targetElement, productId, false);
-		// 	e.preventDefault();
-		// } 
 
 		if (targetElement.classList.contains('order-toy-btn')) {
 			fbq('track', 'Lead');
@@ -102,6 +75,9 @@ window.onload = function () {
 			document.querySelector('.slider-product__1-1.prod_1').classList.add('active');
 			document.querySelector('.slider-product__1-2.prod_1').classList.remove('active');
 			document.querySelector('.slider-product__1-3.prod_1').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_1-1').classList.add('active');
+			document.querySelector('.product__slider-btns.prod_1-2').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_1-3').classList.remove('active');
 		}
 		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_brown') && targetElement.classList.contains('prod_1')) {
 			document.querySelector('.info-product__color_btn_gray.prod_1').classList.remove('active');
@@ -110,6 +86,9 @@ window.onload = function () {
 			document.querySelector('.slider-product__1-1.prod_1').classList.remove('active');
 			document.querySelector('.slider-product__1-2.prod_1').classList.add('active');
 			document.querySelector('.slider-product__1-3.prod_1').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_1-1').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_1-2').classList.add('active');
+			document.querySelector('.product__slider-btns.prod_1-3').classList.remove('active');
 		}
 		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_white') && targetElement.classList.contains('prod_1')) {
 			document.querySelector('.info-product__color_btn_gray').classList.remove('active');
@@ -118,6 +97,9 @@ window.onload = function () {
 			document.querySelector('.slider-product__1-1.prod_1').classList.remove('active');
 			document.querySelector('.slider-product__1-2.prod_1').classList.remove('active');
 			document.querySelector('.slider-product__1-3.prod_1').classList.add('active');
+			document.querySelector('.product__slider-btns.prod_1-1').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_1-2').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_1-3').classList.add('active');
 		}
 
 		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_brown') && targetElement.classList.contains('prod_2')) {
@@ -127,6 +109,9 @@ window.onload = function () {
 			document.querySelector('.slider-product__2-1.prod_2').classList.add('active');
 			document.querySelector('.slider-product__2-2.prod_2').classList.remove('active');
 			document.querySelector('.slider-product__2-3.prod_2').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_2-1').classList.add('active');
+			document.querySelector('.product__slider-btns.prod_2-2').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_2-3').classList.remove('active');
 		}
 		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_pink') && targetElement.classList.contains('prod_2')) {
 			document.querySelector('.info-product__color_btn_brown.prod_2').classList.remove('active');
@@ -135,6 +120,9 @@ window.onload = function () {
 			document.querySelector('.slider-product__2-1.prod_2').classList.remove('active');
 			document.querySelector('.slider-product__2-2.prod_2').classList.add('active');
 			document.querySelector('.slider-product__2-3.prod_2').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_2-1').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_2-2').classList.add('active');
+			document.querySelector('.product__slider-btns.prod_2-3').classList.remove('active');
 		}
 		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_purple') && targetElement.classList.contains('prod_2')) {
 			document.querySelector('.info-product__color_btn_brown.prod_2').classList.remove('active');
@@ -143,6 +131,9 @@ window.onload = function () {
 			document.querySelector('.slider-product__2-1.prod_2').classList.remove('active');
 			document.querySelector('.slider-product__2-2.prod_2').classList.remove('active');
 			document.querySelector('.slider-product__2-3.prod_2').classList.add('active');
+			document.querySelector('.product__slider-btns.prod_2-1').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_2-2').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_2-3').classList.add('active');
 		}
 
 		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_white') && targetElement.classList.contains('prod_3')) {
@@ -152,6 +143,9 @@ window.onload = function () {
 			document.querySelector('.slider-product__3-1.prod_3').classList.add('active');
 			document.querySelector('.slider-product__3-2.prod_3').classList.remove('active');
 			document.querySelector('.slider-product__3-3.prod_3').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_3-1').classList.add('active');
+			document.querySelector('.product__slider-btns.prod_3-2').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_3-3').classList.remove('active');
 		}
 		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_yellow') && targetElement.classList.contains('prod_3')) {
 			document.querySelector('.info-product__color_btn_white.prod_3').classList.remove('active');
@@ -160,6 +154,9 @@ window.onload = function () {
 			document.querySelector('.slider-product__3-1.prod_3').classList.remove('active');
 			document.querySelector('.slider-product__3-2.prod_3').classList.add('active');
 			document.querySelector('.slider-product__3-3.prod_3').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_3-1').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_3-2').classList.add('active');
+			document.querySelector('.product__slider-btns.prod_3-3').classList.remove('active');
 		}
 		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_pink') && targetElement.classList.contains('prod_3')) {
 			document.querySelector('.info-product__color_btn_white.prod_3').classList.remove('active');
@@ -168,6 +165,9 @@ window.onload = function () {
 			document.querySelector('.slider-product__3-1.prod_3').classList.remove('active');
 			document.querySelector('.slider-product__3-2.prod_3').classList.remove('active');
 			document.querySelector('.slider-product__3-3.prod_3').classList.add('active');
+			document.querySelector('.product__slider-btns.prod_3-1').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_3-2').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_3-3').classList.add('active');
 		}
 
 		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_gray') && targetElement.classList.contains('prod_4')) {
@@ -175,12 +175,16 @@ window.onload = function () {
 			document.querySelector('.info-product__color_btn_brown.prod_4').classList.remove('active');
 			document.querySelector('.slider-product__4-1.prod_4').classList.add('active');
 			document.querySelector('.slider-product__4-2.prod_4').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_4-1').classList.add('active');
+			document.querySelector('.product__slider-btns.prod_4-2').classList.remove('active');
 		}
 		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_brown') && targetElement.classList.contains('prod_4')) {
 			document.querySelector('.info-product__color_btn_gray.prod_4').classList.remove('active');
 			document.querySelector('.info-product__color_btn_brown.prod_4').classList.add('active');
 			document.querySelector('.slider-product__4-1.prod_4').classList.remove('active');
 			document.querySelector('.slider-product__4-2.prod_4').classList.add('active');
+			document.querySelector('.product__slider-btns.prod_4-1').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_4-2').classList.add('active');
 		}
 
 		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_blue') && targetElement.classList.contains('prod_5')) {
@@ -188,12 +192,16 @@ window.onload = function () {
 			document.querySelector('.info-product__color_btn_yellow.prod_5').classList.remove('active');
 			document.querySelector('.slider-product__5-1.prod_5').classList.add('active');
 			document.querySelector('.slider-product__5-2.prod_5').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_5-1').classList.add('active');
+			document.querySelector('.product__slider-btns.prod_5-2').classList.remove('active');
 		}
 		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_yellow') && targetElement.classList.contains('prod_5')) {
 			document.querySelector('.info-product__color_btn_blue.prod_5').classList.remove('active');
 			document.querySelector('.info-product__color_btn_yellow.prod_5').classList.add('active');
 			document.querySelector('.slider-product__5-1.prod_5').classList.remove('active');
 			document.querySelector('.slider-product__5-2.prod_5').classList.add('active');
+			document.querySelector('.product__slider-btns.prod_5-1').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_5-2').classList.add('active');
 		}
 
 		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_gray') && targetElement.classList.contains('prod_6')) {
@@ -201,12 +209,16 @@ window.onload = function () {
 			document.querySelector('.info-product__color_btn_pink.prod_6').classList.remove('active');
 			document.querySelector('.slider-product__6-1.prod_6').classList.add('active');
 			document.querySelector('.slider-product__6-2.prod_6').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_6-1').classList.add('active');
+			document.querySelector('.product__slider-btns.prod_6-2').classList.remove('active');
 		}
 		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_pink') && targetElement.classList.contains('prod_6')) {
 			document.querySelector('.info-product__color_btn_gray.prod_6').classList.remove('active');
 			document.querySelector('.info-product__color_btn_pink.prod_6').classList.add('active');
 			document.querySelector('.slider-product__6-1.prod_6').classList.remove('active');
 			document.querySelector('.slider-product__6-2.prod_6').classList.add('active');
+			document.querySelector('.product__slider-btns.prod_6-1').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_6-2').classList.add('active');
 		}
 
 		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_gray') && targetElement.classList.contains('prod_7')) {
@@ -218,6 +230,10 @@ window.onload = function () {
 			document.querySelector('.slider-product__7-2.prod_7').classList.remove('active');
 			document.querySelector('.slider-product__7-3.prod_7').classList.remove('active');
 			document.querySelector('.slider-product__7-4.prod_7').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_7-1').classList.add('active');
+			document.querySelector('.product__slider-btns.prod_7-2').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_7-3').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_7-4').classList.remove('active');
 		}
 		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_brown') && targetElement.classList.contains('prod_7')) {
 			document.querySelector('.info-product__color_btn_gray.prod_7').classList.remove('active');
@@ -228,6 +244,10 @@ window.onload = function () {
 			document.querySelector('.slider-product__7-2.prod_7').classList.add('active');
 			document.querySelector('.slider-product__7-3.prod_7').classList.remove('active');
 			document.querySelector('.slider-product__7-4.prod_7').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_7-1').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_7-2').classList.add('active');
+			document.querySelector('.product__slider-btns.prod_7-3').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_7-4').classList.remove('active');
 		}
 		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_pink') && targetElement.classList.contains('prod_7')) {
 			document.querySelector('.info-product__color_btn_gray.prod_7').classList.remove('active');
@@ -238,6 +258,10 @@ window.onload = function () {
 			document.querySelector('.slider-product__7-2.prod_7').classList.remove('active');
 			document.querySelector('.slider-product__7-3.prod_7').classList.add('active');
 			document.querySelector('.slider-product__7-4.prod_7').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_7-1').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_7-2').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_7-3').classList.add('active');
+			document.querySelector('.product__slider-btns.prod_7-4').classList.remove('active');
 		}
 		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_blue') && targetElement.classList.contains('prod_7')) {
 			document.querySelector('.info-product__color_btn_gray.prod_7').classList.remove('active');
@@ -248,6 +272,10 @@ window.onload = function () {
 			document.querySelector('.slider-product__7-2.prod_7').classList.remove('active');
 			document.querySelector('.slider-product__7-3.prod_7').classList.remove('active');
 			document.querySelector('.slider-product__7-4.prod_7').classList.add('active');
+			document.querySelector('.product__slider-btns.prod_7-1').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_7-2').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_7-3').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_7-4').classList.add('active');
 		}
 
 		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_gray') && targetElement.classList.contains('prod_8')) {
@@ -255,12 +283,16 @@ window.onload = function () {
 			document.querySelector('.info-product__color_btn_brown.prod_8').classList.remove('active');
 			document.querySelector('.slider-product__8-1.prod_8').classList.add('active');
 			document.querySelector('.slider-product__8-2.prod_8').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_8-1').classList.add('active');
+			document.querySelector('.product__slider-btns.prod_8-2').classList.remove('active');
 		}
 		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_brown') && targetElement.classList.contains('prod_8')) {
 			document.querySelector('.info-product__color_btn_gray.prod_8').classList.remove('active');
 			document.querySelector('.info-product__color_btn_brown.prod_8').classList.add('active');
 			document.querySelector('.slider-product__8-1.prod_8').classList.remove('active');
 			document.querySelector('.slider-product__8-2.prod_8').classList.add('active');
+			document.querySelector('.product__slider-btns.prod_8-1').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_8-2').classList.add('active');
 		}
 
 		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_pink') && targetElement.classList.contains('prod_9')) {
@@ -270,6 +302,9 @@ window.onload = function () {
 			document.querySelector('.slider-product__9-1.prod_9').classList.add('active');
 			document.querySelector('.slider-product__9-2.prod_9').classList.remove('active');
 			document.querySelector('.slider-product__9-3.prod_9').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_9-1').classList.add('active');
+			document.querySelector('.product__slider-btns.prod_9-2').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_9-3').classList.remove('active');
 		}
 		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_green') && targetElement.classList.contains('prod_9')) {
 			document.querySelector('.info-product__color_btn_pink.prod_9').classList.remove('active');
@@ -278,6 +313,9 @@ window.onload = function () {
 			document.querySelector('.slider-product__9-1.prod_9').classList.remove('active');
 			document.querySelector('.slider-product__9-2.prod_9').classList.add('active');
 			document.querySelector('.slider-product__9-3.prod_9').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_9-1').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_9-2').classList.add('active');
+			document.querySelector('.product__slider-btns.prod_9-3').classList.remove('active');
 		}
 		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_blue') && targetElement.classList.contains('prod_9')) {
 			document.querySelector('.info-product__color_btn_pink.prod_9').classList.remove('active');
@@ -286,6 +324,9 @@ window.onload = function () {
 			document.querySelector('.slider-product__9-1.prod_9').classList.remove('active');
 			document.querySelector('.slider-product__9-2.prod_9').classList.remove('active');
 			document.querySelector('.slider-product__9-3.prod_9').classList.add('active');
+			document.querySelector('.product__slider-btns.prod_9-1').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_9-2').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_9-3').classList.add('active');
 		}
 
 		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_yellow') && targetElement.classList.contains('prod_10')) {
@@ -295,6 +336,9 @@ window.onload = function () {
 			document.querySelector('.slider-product__10-1.prod_10').classList.add('active');
 			document.querySelector('.slider-product__10-2.prod_10').classList.remove('active');
 			document.querySelector('.slider-product__10-3.prod_10').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_10-1').classList.add('active');
+			document.querySelector('.product__slider-btns.prod_10-2').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_10-3').classList.remove('active');
 		}
 		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_pink') && targetElement.classList.contains('prod_10')) {
 			document.querySelector('.info-product__color_btn_yellow.prod_10').classList.remove('active');
@@ -303,6 +347,9 @@ window.onload = function () {
 			document.querySelector('.slider-product__10-1.prod_10').classList.remove('active');
 			document.querySelector('.slider-product__10-2.prod_10').classList.add('active');
 			document.querySelector('.slider-product__10-3.prod_10').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_10-1').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_10-2').classList.add('active');
+			document.querySelector('.product__slider-btns.prod_10-3').classList.remove('active');
 		}
 		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_blue') && targetElement.classList.contains('prod_10')) {
 			document.querySelector('.info-product__color_btn_yellow.prod_10').classList.remove('active');
@@ -311,7 +358,11 @@ window.onload = function () {
 			document.querySelector('.slider-product__10-1.prod_10').classList.remove('active');
 			document.querySelector('.slider-product__10-2.prod_10').classList.remove('active');
 			document.querySelector('.slider-product__10-3.prod_10').classList.add('active');
+			document.querySelector('.product__slider-btns.prod_10-1').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_10-2').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_10-3').classList.add('active');
 		}
+
 		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_blue') && targetElement.classList.contains('prod_11')) {
 			document.querySelector('.info-product__color_btn_blue.prod_11').classList.add('active');
 			document.querySelector('.info-product__color_btn_green.prod_11').classList.remove('active');
@@ -319,6 +370,9 @@ window.onload = function () {
 			document.querySelector('.slider-product__11-1.prod_11').classList.add('active');
 			document.querySelector('.slider-product__11-2.prod_11').classList.remove('active');
 			document.querySelector('.slider-product__11-3.prod_11').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_11-1').classList.add('active');
+			document.querySelector('.product__slider-btns.prod_11-2').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_11-3').classList.remove('active');
 		}
 		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_green') && targetElement.classList.contains('prod_11')) {
 			document.querySelector('.info-product__color_btn_blue.prod_11').classList.remove('active');
@@ -327,6 +381,9 @@ window.onload = function () {
 			document.querySelector('.slider-product__11-1.prod_11').classList.remove('active');
 			document.querySelector('.slider-product__11-2.prod_11').classList.add('active');
 			document.querySelector('.slider-product__11-3.prod_11').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_11-1').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_11-2').classList.add('active');
+			document.querySelector('.product__slider-btns.prod_11-3').classList.remove('active');
 		}
 		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_pink') && targetElement.classList.contains('prod_11')) {
 			document.querySelector('.info-product__color_btn_blue.prod_11').classList.remove('active');
@@ -335,6 +392,9 @@ window.onload = function () {
 			document.querySelector('.slider-product__11-1.prod_11').classList.remove('active');
 			document.querySelector('.slider-product__11-2.prod_11').classList.remove('active');
 			document.querySelector('.slider-product__11-3.prod_11').classList.add('active');
+			document.querySelector('.product__slider-btns.prod_11-1').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_11-2').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_11-3').classList.add('active');
 		}
 
 		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_gray') && targetElement.classList.contains('prod_12')) {
@@ -342,12 +402,16 @@ window.onload = function () {
 			document.querySelector('.info-product__color_btn_brown.prod_12').classList.remove('active');
 			document.querySelector('.slider-product__12-1.prod_12').classList.add('active');
 			document.querySelector('.slider-product__12-2.prod_12').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_12-1').classList.add('active');
+			document.querySelector('.product__slider-btns.prod_12-2').classList.remove('active');
 		}
 		if (targetElement.classList.contains('info-product__color_btn') && targetElement.classList.contains('info-product__color_btn_brown') && targetElement.classList.contains('prod_12')) {
 			document.querySelector('.info-product__color_btn_gray.prod_12').classList.remove('active');
 			document.querySelector('.info-product__color_btn_brown.prod_12').classList.add('active');
 			document.querySelector('.slider-product__12-1.prod_12').classList.remove('active');
 			document.querySelector('.slider-product__12-2.prod_12').classList.add('active');
+			document.querySelector('.product__slider-btns.prod_12-1').classList.remove('active');
+			document.querySelector('.product__slider-btns.prod_12-2').classList.add('active');
 		}
 	}
 	
@@ -385,197 +449,6 @@ window.onload = function () {
 			}
 		}
 	}
-
-	// function loadProducts(data) {
-	// 	const productsItems = document.querySelector('.products__body');
-
-	// 	data.products.forEach(item => {
-	// 		const productId = item.id;
-	// 		const productUrl = item.url;
-	// 		const productImage = item.image;
-	// 		const productTitle = item.title;
-	// 		const productText = item.text;
-	// 		const productPrice = item.price;
-	// 		const productOldPrice = item.priceOld;
-	// 		const productShareUrl = item.shareUrl;
-	// 		const productLikeUrl = item.likeUrl;
-	// 		const productLabels = item.labels;
-
-	// 		let productTemplateStart = `<article data-pid="${productId}" class="product">`;
-	// 		let productTemplateEnd = `</article>`;
-
-	// 		let productTemplateContentStart = `<div class="product__content">`;
-	// 		let productTemplateContentEnd = `</div>`;
-
-	// 		let productTemplateImage = `
-	// 			<a href="${productUrl}" class="product__image _ibg">
-	// 				<img src="img/products/${productImage}" alt="${productTitle}">
-	// 			</a>
-	// 		`;
-
-	// 		let productTemplateLabels = '';
-	// 		if (productLabels) {
-	// 			let productTemplateLabelsStart = `<div class="product__labels">`;
-	// 			let productTemplateLabelsEnd = `</div>`;
-	// 			let productTemplateLabelsContent = '';
-
-	// 			productLabels.forEach(labelItem => {
-	// 				productTemplateLabelsContent += `<div class="product__label product__label_${labelItem.type}">${labelItem.value}</div>`;
-	// 			});
-
-	// 			productTemplateLabels += productTemplateLabelsStart;
-	// 			productTemplateLabels += productTemplateLabelsContent;
-	// 			productTemplateLabels += productTemplateLabelsEnd;
-	// 		}
-
-	// 		let productTemplateInfoStart = `
-	// 			<div class="product__info info-product">
-	// 				<h3 class="info-product__title">${productTitle}</h3>
-	// 				<div class="info-product__text">${productText}</div>
-	// 		`;
-	// 		let productTemplateInfoEnd = `</div>`;
-
-	// 		let productTemplatePrices = '';
-	// 		let productTemplatePricesStart = `<div class="info-product__prices">`;
-	// 		let productTemplatePricesCurrent = `<div class="info-product__current-price">Rp ${productPrice}</div>`;
-	// 		let productTemplatePricesOld = `<div class="info-product__old-price">Rp ${productOldPrice}</div>`;
-	// 		let productTemplatePricesEnd = `</div>`;
-
-	// 		productTemplatePrices = productTemplatePricesStart;
-	// 		productTemplatePrices += productTemplatePricesCurrent;
-	// 		if (productOldPrice) {
-	// 			productTemplatePrices += productTemplatePricesOld;
-	// 		}
-	// 		productTemplatePrices += productTemplatePricesEnd;
-
-	// 		let productTemplateActions = `
-	// 			<div class="product__actions actions-product">
-	// 				<a href="" class="actions-product__btn">Add to cart</a>
-	// 				<div class="actions-product__items">
-	// 					<a href="${productShareUrl}" class="actions-product__item _icon-share">Share</a>
-	// 					<a href="${productLikeUrl}" class="actions-product__item _icon-favorite">Like</a>
-	// 				</div>
-	// 			</div>
-	// 		`;
-	// 		let productTemplate = '';
-	// 		productTemplate += productTemplateStart;
-	// 		productTemplate += productTemplateContentStart;
-	// 		productTemplate += productTemplateImage;
-	// 		productTemplate += productTemplateLabels;
-	// 		productTemplate += productTemplateInfoStart;
-	// 		productTemplate += productTemplatePrices;
-	// 		productTemplate += productTemplateInfoEnd;
-	// 		productTemplate += productTemplateActions;
-	// 		productTemplate += productTemplateContentEnd;
-	// 		productTemplate += productTemplateEnd;
-
-	// 		productsItems.insertAdjacentHTML('beforeend', productTemplate);
-
-	// 	});
-
-	// }
-
-	// AddToCart
-	
-	// function addToCart(productButton, productId) {
-	// 	if (!productButton.classList.contains('_hold')) {
-	// 		productButton.classList.add('_hold');
-	// 		productButton.classList.add('_fly');
-
-	// 		const cart = document.querySelector('.cart-header__icon');
-	// 		const product = document.querySelector(`[data-pid="${productId}"]`);
-	// 		const productImage = product.querySelector('.product__image');
-
-	// 		const productImageFly = productImage.cloneNode(true);
-
-	// 		const productImageFlyWidth = productImage.offsetWidth;
-	// 		const productImageFlyHeight = productImage.offsetHeight;
-	// 		const productImageFlyTop = productImage.getBoundingClientRect().top;
-	// 		const productImageFlyLeft = productImage.getBoundingClientRect().left;
-
-	// 		productImageFly.setAttribute('class', '_flyImage _ibg');
-	// 		productImageFly.style.cssText =
-	// 			`
-	// 		left: ${productImageFlyLeft}px;
-	// 		top: ${productImageFlyTop}px;
-	// 		width: ${productImageFlyWidth}px;
-	// 		height: ${productImageFlyHeight}px;
-	// 	`;
-
-	// 		document.body.append(productImageFly);
-
-	// 		const cartFlyLeft = cart.getBoundingClientRect().left;
-	// 		const cartFlyTop = cart.getBoundingClientRect().top;
-
-	// 		productImageFly.style.cssText =
-	// 			`
-	// 		left: ${cartFlyLeft}px;
-	// 		top: ${cartFlyTop}px;
-	// 		width: 0px;
-	// 		height: 0px;
-	// 		opacity:0;
-	// 	`;
-
-	// 		productImageFly.addEventListener('transitionend', function () {
-	// 			if (productButton.classList.contains('_fly')) {
-	// 				productImageFly.remove();
-	// 				updateCart(productButton, productId);
-	// 				productButton.classList.remove('_fly');
-	// 			}
-	// 		});
-	// 	}
-	// }
-
-	// function updateCart(productButton, productId, productAdd = true) {
-	// 	const cart = document.querySelector('.cart-header');
-	// 	const cartIcon = cart.querySelector('.cart-header__icon');
-	// 	const cartQuantity = cartIcon.querySelector('span');
-	// 	const cartProduct = document.querySelector(`[data-cart-pid="${productId}"]`);
-	// 	const cartList = document.querySelector('.cart-list');
-
-	// 	//Добавляем
-	// 	if (productAdd) {
-	// 		if (cartQuantity) {
-	// 			cartQuantity.innerHTML = ++cartQuantity.innerHTML;
-	// 		} else {
-	// 			cartIcon.insertAdjacentHTML('beforeend', `<span>1</span>`);
-	// 		}
-	// 		if (!cartProduct) {
-	// 			const product = document.querySelector(`[data-pid="${productId}"]`);
-	// 			const cartProductImage = product.querySelector('.product__image').innerHTML;
-	// 			const cartProductTitle = product.querySelector('.info-product__title').innerHTML;
-	// 			const cartProductContent = `
-	// 		<a href="" class="cart-list__image _ibg">${cartProductImage}</a>
-	// 		<div class="cart-list__body">
-	// 			<a href="" class="cart-list__title">${cartProductTitle}</a>
-	// 			<div class="cart-list__quantity">Quantity: <span>1</span></div>
-	// 			<a href="" class="cart-list__delete">Delete</a>
-	// 		</div>`;
-	// 			cartList.insertAdjacentHTML('beforeend', `<li data-cart-pid="${productId}" class="cart-list__item">${cartProductContent}</li>`);
-	// 		} else {
-	// 			const cartProductQuantity = cartProduct.querySelector('.cart-list__quantity span');
-	// 			cartProductQuantity.innerHTML = ++cartProductQuantity.innerHTML;
-	// 		}
-
-	// 		// После всех действий
-	// 		productButton.classList.remove('_hold');
-	// 	} else {
-	// 		const cartProductQuantity = cartProduct.querySelector('.cart-list__quantity span');
-	// 		cartProductQuantity.innerHTML = --cartProductQuantity.innerHTML;
-	// 		if (!parseInt(cartProductQuantity.innerHTML)) {
-	// 			cartProduct.remove();
-	// 		}
-
-	// 		const cartQuantityValue = --cartQuantity.innerHTML;
-
-	// 		if (cartQuantityValue) {
-	// 			cartQuantity.innerHTML = cartQuantityValue;
-	// 		} else {
-	// 			cartQuantity.remove();
-	// 			cart.classList.remove('_active');
-	// 		}
-	// 	}
-	// }
 
 // Furniture Gallery
 
@@ -1724,6 +1597,10 @@ if (document.querySelector('.slider-product__1-1')) {
 		loopAdditionalSlides: 5,
 		preloadImages: false,
 		parallax: true,
+		navigation: {
+			nextEl: '.product__slider-btns.prod_1-1 .slider-arrow_next',
+			prevEl: '.product__slider-btns.prod_1-1 .slider-arrow_prev',
+		},
 	});
 }
 if (document.querySelector('.slider-product__1-2')) {
@@ -1738,6 +1615,10 @@ if (document.querySelector('.slider-product__1-2')) {
 		loopAdditionalSlides: 5,
 		preloadImages: false,
 		parallax: true,
+		navigation: {
+			nextEl: '.product__slider-btns.prod_1-2 .slider-arrow_next',
+			prevEl: '.product__slider-btns.prod_1-2 .slider-arrow_prev',
+		},
 	});
 }
 if (document.querySelector('.slider-product__1-3')) {
@@ -1752,6 +1633,10 @@ if (document.querySelector('.slider-product__1-3')) {
 		loopAdditionalSlides: 5,
 		preloadImages: false,
 		parallax: true,
+		navigation: {
+			nextEl: '.product__slider-btns.prod_1-3 .slider-arrow_next',
+			prevEl: '.product__slider-btns.prod_1-3 .slider-arrow_prev',
+		},
 	});
 }
 
@@ -1767,6 +1652,10 @@ if (document.querySelector('.slider-product__2-1')) {
 		loopAdditionalSlides: 5,
 		preloadImages: false,
 		parallax: true,
+		navigation: {
+			nextEl: '.product__slider-btns.prod_2-1 .slider-arrow_next',
+			prevEl: '.product__slider-btns.prod_2-1 .slider-arrow_prev',
+		},
 	});
 }
 if (document.querySelector('.slider-product__2-2')) {
@@ -1781,6 +1670,10 @@ if (document.querySelector('.slider-product__2-2')) {
 		loopAdditionalSlides: 5,
 		preloadImages: false,
 		parallax: true,
+		navigation: {
+			nextEl: '.product__slider-btns.prod_2-2 .slider-arrow_next',
+			prevEl: '.product__slider-btns.prod_2-2 .slider-arrow_prev',
+		},
 	});
 }
 if (document.querySelector('.slider-product__2-3')) {
@@ -1795,6 +1688,10 @@ if (document.querySelector('.slider-product__2-3')) {
 		loopAdditionalSlides: 5,
 		preloadImages: false,
 		parallax: true,
+		navigation: {
+			nextEl: '.product__slider-btns.prod_2-3 .slider-arrow_next',
+			prevEl: '.product__slider-btns.prod_2-3 .slider-arrow_prev',
+		},
 	});
 }
 
@@ -1810,6 +1707,10 @@ if (document.querySelector('.slider-product__3-1')) {
 		loopAdditionalSlides: 5,
 		preloadImages: false,
 		parallax: true,
+		navigation: {
+			nextEl: '.product__slider-btns.prod_3-1 .slider-arrow_next',
+			prevEl: '.product__slider-btns.prod_3-1 .slider-arrow_prev',
+		},
 	});
 }
 if (document.querySelector('.slider-product__3-2')) {
@@ -1824,6 +1725,10 @@ if (document.querySelector('.slider-product__3-2')) {
 		loopAdditionalSlides: 5,
 		preloadImages: false,
 		parallax: true,
+		navigation: {
+			nextEl: '.product__slider-btns.prod_3-2 .slider-arrow_next',
+			prevEl: '.product__slider-btns.prod_3-2 .slider-arrow_prev',
+		},
 	});
 }
 if (document.querySelector('.slider-product__3-3')) {
@@ -1838,6 +1743,10 @@ if (document.querySelector('.slider-product__3-3')) {
 		loopAdditionalSlides: 5,
 		preloadImages: false,
 		parallax: true,
+		navigation: {
+			nextEl: '.product__slider-btns.prod_3-3 .slider-arrow_next',
+			prevEl: '.product__slider-btns.prod_3-3 .slider-arrow_prev',
+		},
 	});
 }
 
@@ -1853,6 +1762,10 @@ if (document.querySelector('.slider-product__4-1')) {
 		loopAdditionalSlides: 5,
 		preloadImages: false,
 		parallax: true,
+		navigation: {
+			nextEl: '.product__slider-btns.prod_4-1 .slider-arrow_next',
+			prevEl: '.product__slider-btns.prod_4-1 .slider-arrow_prev',
+		},
 	});
 }
 if (document.querySelector('.slider-product__4-2')) {
@@ -1867,6 +1780,10 @@ if (document.querySelector('.slider-product__4-2')) {
 		loopAdditionalSlides: 5,
 		preloadImages: false,
 		parallax: true,
+		navigation: {
+			nextEl: '.product__slider-btns.prod_4-2 .slider-arrow_next',
+			prevEl: '.product__slider-btns.prod_4-2 .slider-arrow_prev',
+		},
 	});
 }
 if (document.querySelector('.slider-product__5-1')) {
@@ -1881,6 +1798,10 @@ if (document.querySelector('.slider-product__5-1')) {
 		loopAdditionalSlides: 5,
 		preloadImages: false,
 		parallax: true,
+		navigation: {
+			nextEl: '.product__slider-btns.prod_5-1 .slider-arrow_next',
+			prevEl: '.product__slider-btns.prod_5-1 .slider-arrow_prev',
+		},
 	});
 }
 if (document.querySelector('.slider-product__5-2')) {
@@ -1895,6 +1816,10 @@ if (document.querySelector('.slider-product__5-2')) {
 		loopAdditionalSlides: 5,
 		preloadImages: false,
 		parallax: true,
+		navigation: {
+			nextEl: '.product__slider-btns.prod_5-2 .slider-arrow_next',
+			prevEl: '.product__slider-btns.prod_5-2 .slider-arrow_prev',
+		},
 	});
 }
 if (document.querySelector('.slider-product__6-1')) {
@@ -1909,6 +1834,10 @@ if (document.querySelector('.slider-product__6-1')) {
 		loopAdditionalSlides: 5,
 		preloadImages: false,
 		parallax: true,
+		navigation: {
+			nextEl: '.product__slider-btns.prod_6-1 .slider-arrow_next',
+			prevEl: '.product__slider-btns.prod_6-1 .slider-arrow_prev',
+		},
 	});
 }
 if (document.querySelector('.slider-product__6-2')) {
@@ -1923,6 +1852,10 @@ if (document.querySelector('.slider-product__6-2')) {
 		loopAdditionalSlides: 5,
 		preloadImages: false,
 		parallax: true,
+		navigation: {
+			nextEl: '.product__slider-btns.prod_6-2 .slider-arrow_next',
+			prevEl: '.product__slider-btns.prod_6-2 .slider-arrow_prev',
+		},
 	});
 }
 if (document.querySelector('.slider-product__7-1')) {
@@ -1937,6 +1870,10 @@ if (document.querySelector('.slider-product__7-1')) {
 		loopAdditionalSlides: 5,
 		preloadImages: false,
 		parallax: true,
+		navigation: {
+			nextEl: '.product__slider-btns.prod_7-1 .slider-arrow_next',
+			prevEl: '.product__slider-btns.prod_7-1 .slider-arrow_prev',
+		},
 	});
 }
 if (document.querySelector('.slider-product__7-2')) {
@@ -1951,6 +1888,10 @@ if (document.querySelector('.slider-product__7-2')) {
 		loopAdditionalSlides: 5,
 		preloadImages: false,
 		parallax: true,
+		navigation: {
+			nextEl: '.product__slider-btns.prod_7-2 .slider-arrow_next',
+			prevEl: '.product__slider-btns.prod_7-2 .slider-arrow_prev',
+		},
 	});
 }
 if (document.querySelector('.slider-product__7-3')) {
@@ -1965,6 +1906,10 @@ if (document.querySelector('.slider-product__7-3')) {
 		loopAdditionalSlides: 5,
 		preloadImages: false,
 		parallax: true,
+		navigation: {
+			nextEl: '.product__slider-btns.prod_7-3 .slider-arrow_next',
+			prevEl: '.product__slider-btns.prod_7-3 .slider-arrow_prev',
+		},
 	});
 }
 if (document.querySelector('.slider-product__7-4')) {
@@ -1979,6 +1924,10 @@ if (document.querySelector('.slider-product__7-4')) {
 		loopAdditionalSlides: 5,
 		preloadImages: false,
 		parallax: true,
+		navigation: {
+			nextEl: '.product__slider-btns.prod_7-4 .slider-arrow_next',
+			prevEl: '.product__slider-btns.prod_7-4 .slider-arrow_prev',
+		},
 	});
 }
 if (document.querySelector('.slider-product__8-1')) {
@@ -1993,6 +1942,10 @@ if (document.querySelector('.slider-product__8-1')) {
 		loopAdditionalSlides: 5,
 		preloadImages: false,
 		parallax: true,
+		navigation: {
+			nextEl: '.product__slider-btns.prod_8-1 .slider-arrow_next',
+			prevEl: '.product__slider-btns.prod_8-1 .slider-arrow_prev',
+		},
 	});
 }
 if (document.querySelector('.slider-product__8-2')) {
@@ -2007,6 +1960,10 @@ if (document.querySelector('.slider-product__8-2')) {
 		loopAdditionalSlides: 5,
 		preloadImages: false,
 		parallax: true,
+		navigation: {
+			nextEl: '.product__slider-btns.prod_8-2 .slider-arrow_next',
+			prevEl: '.product__slider-btns.prod_8-2 .slider-arrow_prev',
+		},
 	});
 }
 if (document.querySelector('.slider-product__9-1')) {
@@ -2021,6 +1978,10 @@ if (document.querySelector('.slider-product__9-1')) {
 		loopAdditionalSlides: 5,
 		preloadImages: false,
 		parallax: true,
+		navigation: {
+			nextEl: '.product__slider-btns.prod_9-1 .slider-arrow_next',
+			prevEl: '.product__slider-btns.prod_9-1 .slider-arrow_prev',
+		},
 	});
 }
 if (document.querySelector('.slider-product__9-2')) {
@@ -2035,6 +1996,10 @@ if (document.querySelector('.slider-product__9-2')) {
 		loopAdditionalSlides: 5,
 		preloadImages: false,
 		parallax: true,
+		navigation: {
+			nextEl: '.product__slider-btns.prod_9-2 .slider-arrow_next',
+			prevEl: '.product__slider-btns.prod_9-2 .slider-arrow_prev',
+		},
 	});
 }
 if (document.querySelector('.slider-product__9-3')) {
@@ -2049,6 +2014,10 @@ if (document.querySelector('.slider-product__9-3')) {
 		loopAdditionalSlides: 5,
 		preloadImages: false,
 		parallax: true,
+		navigation: {
+			nextEl: '.product__slider-btns.prod_9-3 .slider-arrow_next',
+			prevEl: '.product__slider-btns.prod_9-3 .slider-arrow_prev',
+		},
 	});
 }
 if (document.querySelector('.slider-product__10-1')) {
@@ -2063,6 +2032,10 @@ if (document.querySelector('.slider-product__10-1')) {
 		loopAdditionalSlides: 5,
 		preloadImages: false,
 		parallax: true,
+		navigation: {
+			nextEl: '.product__slider-btns.prod_10-1 .slider-arrow_next',
+			prevEl: '.product__slider-btns.prod_10-1 .slider-arrow_prev',
+		},
 	});
 }
 if (document.querySelector('.slider-product__10-2')) {
@@ -2077,6 +2050,10 @@ if (document.querySelector('.slider-product__10-2')) {
 		loopAdditionalSlides: 5,
 		preloadImages: false,
 		parallax: true,
+		navigation: {
+			nextEl: '.product__slider-btns.prod_10-2 .slider-arrow_next',
+			prevEl: '.product__slider-btns.prod_10-2 .slider-arrow_prev',
+		},
 	});
 }
 if (document.querySelector('.slider-product__10-3')) {
@@ -2091,6 +2068,10 @@ if (document.querySelector('.slider-product__10-3')) {
 		loopAdditionalSlides: 5,
 		preloadImages: false,
 		parallax: true,
+		navigation: {
+			nextEl: '.product__slider-btns.prod_10-3 .slider-arrow_next',
+			prevEl: '.product__slider-btns.prod_10-3 .slider-arrow_prev',
+		},
 	});
 }
 if (document.querySelector('.slider-product__11-1')) {
@@ -2105,6 +2086,10 @@ if (document.querySelector('.slider-product__11-1')) {
 		loopAdditionalSlides: 5,
 		preloadImages: false,
 		parallax: true,
+		navigation: {
+			nextEl: '.product__slider-btns.prod_11-1 .slider-arrow_next',
+			prevEl: '.product__slider-btns.prod_11-1 .slider-arrow_prev',
+		},
 	});
 }
 if (document.querySelector('.slider-product__11-2')) {
@@ -2119,6 +2104,10 @@ if (document.querySelector('.slider-product__11-2')) {
 		loopAdditionalSlides: 5,
 		preloadImages: false,
 		parallax: true,
+		navigation: {
+			nextEl: '.product__slider-btns.prod_11-2 .slider-arrow_next',
+			prevEl: '.product__slider-btns.prod_11-2 .slider-arrow_prev',
+		},
 	});
 }
 if (document.querySelector('.slider-product__11-3')) {
@@ -2133,6 +2122,10 @@ if (document.querySelector('.slider-product__11-3')) {
 		loopAdditionalSlides: 5,
 		preloadImages: false,
 		parallax: true,
+		navigation: {
+			nextEl: '.product__slider-btns.prod_11-3 .slider-arrow_next',
+			prevEl: '.product__slider-btns.prod_11-3 .slider-arrow_prev',
+		},
 	});
 }
 if (document.querySelector('.slider-product__12-1')) {
@@ -2147,6 +2140,10 @@ if (document.querySelector('.slider-product__12-1')) {
 		loopAdditionalSlides: 5,
 		preloadImages: false,
 		parallax: true,
+		navigation: {
+			nextEl: '.product__slider-btns.prod_12-1 .slider-arrow_next',
+			prevEl: '.product__slider-btns.prod_12-1 .slider-arrow_prev',
+		},
 	});
 }
 if (document.querySelector('.slider-product__12-2')) {
@@ -2161,6 +2158,10 @@ if (document.querySelector('.slider-product__12-2')) {
 		loopAdditionalSlides: 5,
 		preloadImages: false,
 		parallax: true,
+		navigation: {
+			nextEl: '.product__slider-btns.prod_12-2 .slider-arrow_next',
+			prevEl: '.product__slider-btns.prod_12-2 .slider-arrow_prev',
+		},
 	});
 }
 
