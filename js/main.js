@@ -3,42 +3,6 @@
 window.onload = function () {
 	document.addEventListener("click", documentActions);
 
-	const debounce = (func, wait, immediate) => {
-		var timeout;
-		return () => {
-			const context = this, args = arguments;
-			const later = function() {
-				timeout = null;
-				if (!immediate) func.apply(context, args);
-			};
-			const callNow = immediate && !timeout;
-			clearTimeout(timeout);
-			timeout = setTimeout(later, wait);
-			if (callNow) func.apply(context, args);
-		};
-	};
-
-	// const changeVideoSize = () => {
-	// 	let video = document.querySelector('#youtubevideo');
-	// 	// console.log(video.width)
-	// 	if (window.innerWidth > 600) {
-	// 		video.width = 560;
-	// 		video.height = 315;
-	// 	};
-	// 	if (window.innerWidth <= 600 && window.innerWidth > 400) {
-	// 		video.width = 360;
-	// 		video.height = 300;
-	// 	};
-	// 	if (window.innerWidth <= 400) {
-	// 		video.width = 300;
-	// 		video.height = 300;
-	// 	};
-	// };
-
-	// changeVideoSize();
-
-	// addEventListener('resize', debounce(changeVideoSize, 200, false), false);
-
 	// Actions (делегирование события click)
 	function documentActions(e) {
 		const targetElement = e.target;
